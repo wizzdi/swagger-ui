@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  API_URL: location.origin + '/FlexiCore/rest/',
-  SWAGGER_URL: location.origin + '/FlexiCore/rest/openapi.json/'
+  API_URL: 'https://dev.dtpaas.co.il' + '/FlexiCore/rest/',
+  SWAGGER_URL: 'https://dev.dtpaas.co.il' + '/FlexiCore/rest/openapi.json/',
+  LOGO_SRC: '../assets/logo.png',
 };
 
 /*

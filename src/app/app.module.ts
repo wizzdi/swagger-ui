@@ -22,7 +22,7 @@ import { LoginComponent } from './login/login.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [{provide: APP_BASE_HREF, useValue: '/FlexiCore/rest'}],
+  providers: [{provide: APP_BASE_HREF, useValue: ''}],
   bootstrap: [AppComponent],
   exports: [SwaggerComponent, LoginComponent]
 })

@@ -1,4 +1,18 @@
 
+.wizzdi-logo {
+  height: 70px;
+}
+
+.login-wrapper {
+  /* border: 1px solid black ; */
+  border-radius: 10px;
+  background-color: #FFFBEC;
+  padding: 30px;
+}
+
+.login {
+  text-align: center;
+}
 
 @media (min-width: 576px) {
   .jumbotron {
@@ -6,11 +20,34 @@
   }
 }
 
+span {
+  display: block;
+  font-family: "Poppins", Sans-serif;
+}
+
+.header {
+  font-weight: 400;
+  font-size: 23px;
+  margin-top: 20px;
+}
+
+.subheader {
+  font-size: 20px;
+  margin-top: 10px;
+
+}
+
+
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
-  background-color: #e9ecef;
   border-radius: 0.3rem;
+  background-image:  url('../../assets/background-wizzdi.jpeg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: round;
 }
 
 @media (min-width: 768px) {
@@ -40,10 +77,14 @@ row {
   margin-left: -15px;
 }
 
+input {
+  border-radius: 7px !important;
+}
+
 @media (min-width: 576px)
 {
 .offset-sm-3 {
-    margin-left: 25%;
+    margin-left: 15%;
 }
 }
 
@@ -51,7 +92,7 @@ row {
 {
   .col-sm-6 {
     flex: 0 0 50%;
-    max-width: 50%;
+    max-width: 65%;
   }
 }
 
@@ -65,10 +106,11 @@ row {
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
-  font-family: inherit;
+  /* font-family: inherit; */
   font-weight: 500;
   line-height: 1.2;
   color: inherit;
+  font-family: "Poppins", Sans-serif;
 }
 
 h2, .h2 {
@@ -77,11 +119,14 @@ h2, .h2 {
 
 .form-group {
   margin-bottom: 1rem;
+ 
 }
 
   label {
     display: inline-block;
     margin-bottom: 0.5rem;
+    font-family: "Poppins", Sans-serif;
+    font-weight: 500;
   }
 
   .form-control {
@@ -116,6 +161,7 @@ h2, .h2 {
 
 button, input {
   overflow: visible;
+  border: 1px solid #FECA08;
 }
 
 input, button, select, optgroup, textarea {
@@ -130,9 +176,21 @@ input, button, select, optgroup, textarea {
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  color: rgb(0, 0, 0);
+  background-color: #fff;
+  border: 2px solid #FECA08 !important;
+  margin-top: 60px;
+  border-radius: 5px !important; 
+  width: 65%;
+}
+
+.btn-primary:hover {
+  background-color: #FECA08;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 50px !important;
 }
 
 .btn {
@@ -165,6 +223,15 @@ button, input {
   overflow: visible;
 }
 
+input:active{
+  outline: none !important;
+}
+
+input:focus {
+  outline: #FECA08 !important;
+  border: 1px solid #FECA08;
+}
+
 input, button, select, optgroup, textarea {
   margin: 0;
   font-family: inherit;
@@ -178,4 +245,8 @@ button {
 
 *, *::before, *::after {
   box-sizing: border-box;
+}
+
+button:focus {
+  outline: none !important;
 }

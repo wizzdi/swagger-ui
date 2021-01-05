@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { environment } from '../../environments/environment';
 
@@ -18,11 +18,12 @@ export class LoginComponent {
     submitted = false;
     returnUrl: string;
     isError = false;
-
+    imgSrc;
     constructor(
         private formBuilder: FormBuilder,
         private httpClient: HttpClient,
-        private router: Router
+        private router: Router,
+        private route: ActivatedRoute
     ) { }
 
     ngOnInit() {
@@ -30,7 +31,9 @@ export class LoginComponent {
             username: ['', Validators.required],
             password: ['', Validators.required]
         });
-
+        console.log('Router data', this.router);
+        console.log('Route data', this.route);
+        this.imgSrc = environment.LOGO_SRC;
     }
 
     // convenience getter for easy access to form fields
