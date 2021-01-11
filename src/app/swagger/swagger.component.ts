@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, ElementRef } from "@angular/core";
 
 import SwaggerUI from "swagger-ui";
-import SwaggetUIBundle from "swagger-ui";
 import { Router } from "@angular/router";
 declare var $: any;
 import { environment } from "../../environments/environment";
@@ -17,38 +16,34 @@ export class SwaggerComponent implements AfterViewInit {
   constructor(private el: ElementRef, private router: Router) {
   }
 
-  checkAuthKey() {
-    let me = this;
-    let domNode = document.getElementsByTagName("input");
-    $(
-      "input[placeholder='authenticationKey - The AuthenticationKey retrieved when sign-in into the system']"
-    ).each(function () {
-      if (!$(this).val()) {
-        $(this).val(me.key);
-      }
-    });
-  }
+  // checkAuthKey() {
+  //   let me = this;
+  //   let domNode = document.getElementsByTagName("input");
+  // }
 
   async ngAfterViewInit() {
     this.key = localStorage.getItem("authenticationkey");
     if (this.key) {
       let url = environment.SWAGGER_URL + this.key;
-      const ui = SwaggetUIBundle({
+      const ui = SwaggerUI({
         url: url,
         domNode: this.el.nativeElement.querySelector(".swagger-container"),
-        deepLinking: false,
         filter: true,
         docExpansion: "none",
         presets: [SwaggerUI.presets.apis],
-        plugins: [this.AdvancedFilterPlugin],
+        plugins: [this.AdvancedFilterPlugin, this.HideCurlPlugin],
         sorter: "alpha",
         apisSorter: "alpha",
         tagsSorter: "alpha",
+        syntaxHighlight: {
+          activated: false,
+          theme: "agate",
+        },
+        operationsSorter : "method",
         parameterMacro: (operation, parameter) => {
           return this.key;
         },
       });
-      console.log('UI',ui);
       const ss = setInterval(() => {
         const t = document.querySelectorAll(
           "body > app-root > app-swagger > div > div > div:nth-child(2) > div:nth-child(3) > div.filter-container > section"
@@ -61,6 +56,15 @@ export class SwaggerComponent implements AfterViewInit {
       }, 100);
     } else {
       this.router.navigate([""]);
+    }
+  }
+
+   HideCurlPlugin = () => {
+    return {
+      wrapComponents: {
+        curl: () => () => null,
+        
+      }
     }
   }
 
@@ -191,7 +195,6 @@ export class SwaggerComponent implements AfterViewInit {
       );
       site.item(0).setAttribute('href','http://wizzdi.com');
       site.item(0).innerHTML = "wizzdi.com"
-      console.log('ADD', site);
 
   }
 }

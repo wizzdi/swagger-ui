@@ -32,3 +32,15 @@ body{
 .info__license {
     display: none !important;
 }
+
+.link {
+    word-break: break-all;
+}
+/* span {
+    color: black !important;
+}
+
+.body-param__example .microlight {
+    background-color: white !important;
+    color: black !important;
+} */
